@@ -26,6 +26,9 @@ public class TicTacToe {
             checkWinner(board, WhosTurn, squareToPlay);
             if (IsThereWinner == 1) {
                 System.out.println("Congrats you have won player " + WhosTurn + "!!");
+
+                System.out.println("==== The winning board ====");
+                printTheBoard(board);
                 break;
             } else if(NumSquaresPlayed == 9){
                 System.out.println("It's a tie");
