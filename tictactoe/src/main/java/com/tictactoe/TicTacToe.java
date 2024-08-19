@@ -1,5 +1,7 @@
 package com.tictactoe;
 
+import java.util.Scanner;
+
 public class TicTacToe {
     public static void main(String[] args) {
         char[] board = {'1', '2','3',
@@ -8,7 +10,14 @@ public class TicTacToe {
         var NumSquaresPlayed = 0;
         var WhosTurn = 'x';
 
-        printTheBoard(board);
+        while (NumSquaresPlayed < 9) {
+            printTheBoard(board);
+            System.out.printf("Choose a square player %s:" , WhosTurn);
+            Scanner scanner = new Scanner(System.in);
+            int squareToPlay = scanner.nextInt();
+
+            board[squareToPlay-1] = WhosTurn;
+        }
         
     }
     private static void printTheBoard(char[] board){
