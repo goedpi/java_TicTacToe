@@ -23,6 +23,7 @@ public class TicTacToe {
             int squareToPlay = scanner.nextInt();
 
             board[squareToPlay - 1] = WhosTurn;
+            NumSquaresPlayed++;
             // check if there is a winner or not
             checkWinner(board, WhosTurn, squareToPlay);
             if (IsThereWinner == 1) {
@@ -32,6 +33,7 @@ public class TicTacToe {
                 System.out.println("It's a tie");
                 break;
             }
+            WhosTurn = (WhosTurn == 'x') ? 'o' : 'x';
 
         }
 
@@ -60,10 +62,8 @@ public class TicTacToe {
             return IsThereWinner = 1;
 
         } else {
-            NumSquaresPlayed++;
             return IsThereWinner = 0;
 
         }
     }
-
 }
