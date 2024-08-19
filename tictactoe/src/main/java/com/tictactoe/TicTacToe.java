@@ -14,17 +14,15 @@ public class TicTacToe {
     // 0 = no winner
     // 1 = winner
 
+    static Scanner scanner = new Scanner(System.in);
+    static int squareToPlay;
     public static void main(String[] args) {
-
+     
         while (NumSquaresPlayed < 9) {
             printTheBoard(board);
             System.out.printf("Choose a square player %s:", WhosTurn);
-            Scanner scanner = new Scanner(System.in);
-            int squareToPlay = scanner.nextInt();
-
-            board[squareToPlay - 1] = WhosTurn;
-            NumSquaresPlayed++;
-            // check if there is a winner or not
+            playerInput(board, WhosTurn);
+      // check if there is a winner or not
             checkWinner(board, WhosTurn, squareToPlay);
             if (IsThereWinner == 1) {
                 System.out.println("Congrats you have won player " + WhosTurn + "!!");
@@ -37,6 +35,35 @@ public class TicTacToe {
 
         }
 
+    }
+
+    
+    private static void playerInput(char []board, char WhosTurn) {
+        //handles validation and input
+        
+        boolean validInput = false;
+        while (validInput == false) {
+            try {
+                squareToPlay = scanner.nextInt();
+                if (squareToPlay < 1 || squareToPlay > 9 ) {
+                    System.out.println("Invalid input. Please enter a number between 1 and 9.");
+                    System.out.printf("Choose a square player %s:", WhosTurn);
+                } else if(board[squareToPlay - 1] == 'o' || board[squareToPlay-1] == 'x'){
+                    System.out.println("This square is taken. Please try another one");
+                    System.out.printf("Choose a square player %s:", WhosTurn);
+                    printTheBoard(board);
+                } else{
+                    board[squareToPlay - 1] = WhosTurn;
+                    NumSquaresPlayed++;
+                    validInput=true;
+                }
+            }  catch (Exception e) {
+                System.out.println("Input is not a number. Please enter a number between 1 and 9");
+                System.out.printf("Choose a square player %s:", WhosTurn);
+                scanner.next();
+            }
+           
+        }
     }
 
     private static void printTheBoard(char[] board) {
