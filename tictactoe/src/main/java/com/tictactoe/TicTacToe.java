@@ -78,7 +78,7 @@ public class TicTacToe {
 
     }
 
-    private static int checkWinner(char[] board, char WhosTurn, int NumSquaresPlayed) {
+    static int checkWinner(char[] board, char WhosTurn, int NumSquaresPlayed) {
         if ((board[0] + board[1] + board[2] == (WhosTurn * 3)) // first row
                 || (board[3] + board[4] + board[5] == (WhosTurn * 3)) // second row
                 || (board[6] + board[7] + board[8] == (WhosTurn * 3)) // third row
