@@ -8,6 +8,9 @@ public class board {
     public char[] getBoard(){
         return board;
     }
+    public void setBoard(char[] board){
+        this.board = board;
+    }
 
     public void setSquare(int index, player currentPlayer){
         board[index] = currentPlayer.getSymbol();
