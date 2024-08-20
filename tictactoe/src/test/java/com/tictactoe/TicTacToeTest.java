@@ -1,6 +1,11 @@
 package com.tictactoe;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
+import java.io.ByteArrayInputStream;
+import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
 
@@ -35,4 +40,19 @@ public class TicTacToeTest {
         int result = TicTacToe.checkWinner(board, whosTurn, 6);
         assertEquals(0, result, "No one should've won");
     }   
+
+    @Test public void playerInputValid(){
+        char[] boardInput = {'x', '2', '3', '4', 'x', '6', '7', '8', 'x'};
+        char whosTurn = 'x';
+        
+        char[] boardExpected = {'x', '2', '3', 'x', 'x', '6', '7', '8', 'x'};
+        String input = "4\n";
+        ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        Scanner testScanner = new Scanner(in);
+        
+        TicTacToe.playerInput(boardInput, whosTurn, testScanner);
+        assertArrayEquals(boardExpected, boardInput);
+
+    }
+    
 }

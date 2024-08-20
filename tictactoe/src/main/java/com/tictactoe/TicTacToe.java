@@ -2,12 +2,14 @@ package com.tictactoe;
 
 import java.util.Scanner;
 
+
 public class TicTacToe {
     static char[] board = { '1', '2', '3',
             '4', '5', '6',
             '7', '8', '9' };
     static int NumSquaresPlayed = 0;
     static char WhosTurn = 'x';
+    
     
     static int IsThereWinner = 0;
     //-1 = tie
@@ -17,11 +19,19 @@ public class TicTacToe {
     static Scanner scanner = new Scanner(System.in);
     static int squareToPlay;
     public static void main(String[] args) {
-     
+        player player1 = new player(scanner);
+        player player2 = new player(scanner);
+        
+        player1.configurePlayer(1, 'x');
+        player2.configurePlayer(2, 'o');
+        
+
+
+
         while (NumSquaresPlayed < 9) {
             printTheBoard(board);
             System.out.printf("Choose a square player %s:", WhosTurn);
-            playerInput(board, WhosTurn);
+            playerInput(board, WhosTurn, scanner);
       // check if there is a winner or not
             checkWinner(board, WhosTurn, squareToPlay);
             if (IsThereWinner == 1) {
@@ -41,13 +51,18 @@ public class TicTacToe {
     }
 
     
-    private static void playerInput(char []board, char WhosTurn) {
+    static void playerInput(char []board, char WhosTurn, Scanner inputScanner) {
         //handles validation and input
-        
+        Scanner input;
+            if (inputScanner != null) {
+                input = inputScanner; // Use the provided scanner if it is not null
+            } else {
+                input = scanner; // Otherwise, use the default global scanner
+            }
         boolean validInput = false;
         while (validInput == false) {
             try {
-                squareToPlay = scanner.nextInt();
+                squareToPlay = input.nextInt();
                 if (squareToPlay < 1 || squareToPlay > 9 ) {
                     System.out.println("Invalid input. Please enter a number between 1 and 9.");
                     System.out.printf("Choose a square player %s:", WhosTurn);
