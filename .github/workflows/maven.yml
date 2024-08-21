@@ -24,9 +24,7 @@ jobs:
     # Assuming the pom.xml is located in the root directory, remove the -f flag
     # If it's in a subdirectory, adjust the path accordingly
     - name: Run Unit Tests
-      run: mvn -B test
-      # If pom.xml is in a subdirectory, use:
-      # run: mvn -B -f <path-to-pom.xml> test
+      run: mvn -B -f tictactoe/pom.xml test
 
     # Optional: Uploads the test results for visibility
     - name: Archive Test Reports
