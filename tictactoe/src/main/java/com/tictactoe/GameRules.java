@@ -23,11 +23,11 @@ public class GameRules {
  public boolean validateInput(int SquareToPlay, player currentPlayer, board gameBoard){
     boolean validInput = false;
             if (SquareToPlay < 1 || SquareToPlay > 9 ) {      
-                System.out.println("Invalid input. Please enter a number between 1 and 9.");
-                System.out.printf("Choose a square player %s:", currentPlayer.getName());
+                System.out.println("Invalid input. Please enter a number between 1 and 9.\n");
+                System.out.printf("Choose a square player %s: \n", currentPlayer.getName());
             } else if (gameBoard.getSquare(SquareToPlay-1) == 'o' || gameBoard.getSquare(SquareToPlay-1)== 'x') {
-                System.out.println("This square is taken. Please try another one");
-                System.out.printf("\n Choose a square player %s:", currentPlayer.getName());
+                System.out.println("This square is taken. Please try another one \n");
+                System.out.printf("Choose a square player %s: \n", currentPlayer.getName());
                 gameBoard.printBoard();
             } else{
                 gameBoard.setSquare(SquareToPlay, currentPlayer);
