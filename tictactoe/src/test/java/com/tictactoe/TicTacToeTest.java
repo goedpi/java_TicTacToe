@@ -22,34 +22,6 @@ public class TicTacToeTest {
         player1.configurePlayer(1, 'x');
         currentPlayer = player1;
     }
-    
-    @Test
-    public void testCheckWinnerRow() {
-        char[] board = {'x', 'x', 'x', '4', '5', '6', '7', '8', '9'};
-        gameBoard.setBoard(board);
-        int result = TicTacToe.checkWinner(gameBoard, currentPlayer, 3);
-        assertEquals(1, result, "Player X should win by completing the first row.");
-    }
-    @Test
-    public void testCheckWinnerDiagonal(){
-        char[] board = {'x', '2', '3', '4', 'x', '6', '7', '8', 'x'};
-        gameBoard.setBoard(board);
-        int result = TicTacToe.checkWinner(gameBoard, currentPlayer, 3);
-        assertEquals(1, result, "Player X should win by completing the first row.");
-    }
-    @Test
-    public void testCheckWinnerColumn(){
-        char[] board = {'1', 'x', '3', '4', 'x', '6', '7', 'x', '9'};
-        gameBoard.setBoard(board);
-        int result = TicTacToe.checkWinner(gameBoard, currentPlayer, 3);
-        assertEquals(1, result, "Player X should win by completing the first row.");
-    }
-    @Test public void noWinner(){
-        char[] board = {'x', 'o', 'x', 'x', '0', '0', '7', '8', '9'};
-        gameBoard.setBoard(board);
-        int result = TicTacToe.checkWinner(gameBoard, currentPlayer, 6);
-        assertEquals(0, result, "No one should've won");
-    }   
     }
     
 

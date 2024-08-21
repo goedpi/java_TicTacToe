@@ -32,7 +32,7 @@ public class boardTest {
     }
     @Test
     public void setSquareTest(){
-        char[] expectedBoard = { '1', 'x', 'x','4', '5', '6','7', '8', '9' };
+        char[] expectedBoard = { 'x', 'x', '3','4', '5', '6','7', '8', '9' };
         Board.setSquare(1, currentPlayer);
         Board.setSquare(2, currentPlayer);
         assertArrayEquals(Board.getBoard(), expectedBoard);

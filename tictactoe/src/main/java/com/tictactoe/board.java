@@ -13,7 +13,7 @@ public class board {
     }
 
     public void setSquare(int index, player currentPlayer){
-        board[index] = currentPlayer.getSymbol();
+        board[index-1] = currentPlayer.getSymbol();
     }
 
     public char getSquare(int index){
