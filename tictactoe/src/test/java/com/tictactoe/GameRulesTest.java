@@ -2,17 +2,9 @@ package com.tictactoe;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
-import java.util.Scanner;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
-
-import com.tictactoe.player;
 
 public class GameRulesTest {
     player player1 = new player("John", 'x');

@@ -41,6 +41,8 @@ public class TicTacToe {
 
                 System.out.println("==== The winning board ====");
                 gameBoard.printBoard();
+                LogGameHistory logGameHistory = new LogGameHistory(player1, player2, gameBoard, NumSquaresPlayed);
+                logGameHistory.logGameResult("Winner is: " + currentPlayer.getName() + "Symbol: " + currentPlayer.getSymbol());
                 break;
             } else if(NumSquaresPlayed == 9){
                 System.out.println("It's a tie");
